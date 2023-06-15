@@ -8,37 +8,52 @@
 
     <title>Pig Dice</title>
   </head>
-
   <body>
-    <h1>Dice Game</h1>
     <div class="container">
-      <h1>start Game</h1>
+      <h1>Pig Dice / Start Game</h1>
+      <h4 id="player-1">Player 1</h4>
+      <button type="submit" id="roll1" class="button">Roll</button>
+      <button type="submit" id="hold1" class="button">Hold</button>
       <br />
-      <form id="settings">
-        <input type="radio" id="player-1" name="playerCount" value="1" />
-        <label for="player-1">Player 1</label>
-        <button id="roll" class="button">Roll</button>
-        <button id="hold" class="button">Hold</button>
-        <br />
-        <br />
-        <input type="radio" id="player-2" name="playerCount" value="2" />
-        <label for="player-2">Player 2</label>
-        <button id="roll" class="button">Roll</button>
-        <button id="hold" class="button">Hold</button>
-      </form>
-     <!--button type="button" class="playBtn">Play</button>
-      <button type="button" class="playBtn">Stop</button> --> 
-    <br />
-    <br />
+      <h4 id="player-2">Player 2</h4>
+      <button type="submit" id="roll2" class="button">Roll</button>
+      <button type="submit" id="hold2" class="button">Hold</button>
+      <br />
+    </div>
     <div class="container">
-      <h3>Player 1 Total Score: <span id="player1TotalScore"></span></h3>
-      <h4>Player 1 Scorecount: <span id="player1Score"></span></h4>
+      <img
+        src="https://thenounproject.com/api/private/icons/2502952/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+        class="hidden1"
+      />
+      <img
+        src="https://thenounproject.com/api/private/icons/2502955/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+        class="hidden2"
+      />
+      <img
+        src="https://thenounproject.com/api/private/icons/2502954/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+        class="hidden3"
+      />
+      <img
+        src="https://thenounproject.com/api/private/icons/2502953/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+        class="hidden4"
+      />
+      <img
+        src="https://thenounproject.com/api/private/icons/2502956/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+        class="hidden5"
+      />
+      <img
+        src="https://thenounproject.com/api/private/icons/2502960/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+        class="hidden6"
+      />
+    </div>
+    <div class="container">
+      <h4>Player 1 Latest Roll:<span id="playerRoll1"></span></h4>
+      <h4>Player 1 Scorecount: <span id="player1TurnScore"></span></h4>
+      <h4>Player 1 Total Score: <span id="player1TotalScore"></span></h4>
       <br />
-      <h3>Player 2 Total Score: <span id="player2TotalScore"></span></h3>
-      <h4>Player 2 Scorecount: <span id="player2Score"></span></h4>
-      <br />
-      <br />
-
+      <h4>Player 2 Latest Roll:<span id="playerRoll2"></span></h4>
+      <h4>Player 2 Scorecount: <span id="player2TurnScore"></span></h4>
+      <h4>Player 2 Total Score: <span id="player2TotalScore"></span></h4>
 
       <label for="youWon">Winning Score!</label>
       <input type="number" id="youWon" max="100" />
