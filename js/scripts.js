@@ -4,7 +4,7 @@ function Game(dieRoll, turnScore, totalScore, id) {
   this.dieRoll = dieRoll;
   this.turnScore = turnScore;
   this.totalScore = totalScore;
-  this.id= id; //Do we need to define id as 'this.id = id;'?
+  this.id = id;
 }
 
 Game.prototype.Roll = function () {
@@ -27,10 +27,11 @@ Game.prototype.turnTotal = function () {
 };
 
 Game.prototype.firstTo100 = function () {
-  if (totalScore >= 100) {
-    console.log("You are the winner wooooooooooooooooooooooooooooooooo");
+  if (this.totalScore >= 10) {
+    console.log(this.totalScore);
     return this.totalScore;
   }
+  return false;
 };
 
 //ui logic
@@ -60,7 +61,8 @@ function playerScores(Game) {
   }
 }
 
-function Play() {
+function Play(event) {
+  console.log(event.target.id);
   if (event.target.id === "roll1") {
     playerTurn1.Roll();
     playerTurn1.rollTurn();
@@ -76,9 +78,24 @@ function Play() {
     playerTurn2.turnTotal();
     playerScores(playerTurn2);
   }
-  return false;
 
-  
+  if (playerTurn1.firstTo100() !== false) {
+    Winner(playerTurn1);
+  }
+  if (playerTurn2.firstTo100() !== false) {
+    Winner(playerTurn2);
+  }
+  return false;
+}
+
+function Winner(Game) {
+  document.querySelector("h3").innerText =
+    "Dice Player" + Game.id + " " + " won!";
+  document.getElementById("roll1").setAttribute("class", "hidden1");
+  document.getElementById("roll2").setAttribute("class", "hidden2");
+  setTimeout(function () {
+    window.location.reload();
+  }, 8000);
 }
 
 window.onload = function () {
@@ -86,78 +103,21 @@ window.onload = function () {
   roll1.addEventListener("click", Play);
 
   let hold1 = document.getElementById("hold1");
-  roll1.addEventListener("click", Play);
+  hold1.addEventListener("click", Play);
 
   let roll2 = document.getElementById("roll2");
   roll2.addEventListener("click", Play);
 
-  let hold2 = document.getElementById("roll2");
+  let hold2 = document.getElementById("hold2");
   hold2.addEventListener("click", Play);
 };
 
-// //function diceWinner(Game) {
-/* "Dice Player" + Game.id + "is the Winner!";
-/* }
-
-//potential button listeners
-let rollButton1 = document.getElementById("roll1");
-rollButton1.addEventListener("click", function () {
-  playerTurn1.Roll();
-  playerScores(playerTurn1);
-});
-
-let rollButton2 = document.getElementById("roll2");
-rollButton2.addEventListener("click", function () {
-  playerTurn2.Roll();
-  playerScores(playerTurn2);
-});
-
-//previous code that didn't work:
- let roll1 = document.getElementById("roll1");
-roll1.addEventListener("submit", Game.Roll);
-
-let roll2 = document.getElementById("roll2");
-roll2.addEventListener("submit", Game.Roll); */
-
-/* window.addEventListener("load", function () {
-  document
-    .querySelector("form#bankAccount")
-    .addEventListener("submit", handleNewBankAccount);
-  document
-    .querySelector("form#depositWithdrawal")
-    .addEventListener("submit", handleDepositWithdrawals);
-}); */
-
-// let player2 = document.querySelector("input[id='player-2']:checked").value;
-
-/* - Richard's Confused Corner - 
-
-Game.prototype.rollTurn = function () {
-  if (this.dieRoll === 1) {
-    this.turnScore = 0;
-  } else {
-    this.dieRoll > 1; <- is this redundant?
-    this.turnScore += this.totalScore = 0; <- combines then totals at 0?
+/*
+Game.prototype.firstTo100 = function(){
+  if(this.totalScore >= 100){
+    console.log(this.totalScore);
+    return this.totalScore;
   }
-  return totalScore;
-}; 
-
-Would this work better?
-Game.prototype.rollTurn = function () {
-  if (this.dieRoll === 1) {
-    this.turnScore = 0;
-  } else {
-    this.turnScore += this.dieRoll;
-    this.totalScore += this.turnScore;
-    this.turnScore = 0;
-  }
-  return this.totalScore;
-};
-*/
-
-/*function getRandomNum(min, max) {
-  min = Math.ceil(1);
-  max = Math.ceil(6);
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return false;
 }
 */
