@@ -1,18 +1,16 @@
-Describe: 
+Describe: function game();
 
-Test:
-Input:
+Test: "It should create base score for maxScore and dieRoll. "
+Input: game()
 Expected output:
 
+Describe: function(player);
 
-Describe: 
+Test: "It should define Player 1 and Player 2 and currentPlay."
+Input: player(player1, player2)
+Expected output: [player1, player2]
 
-Test:
-Input:
-Expected output:
-
-
-Describe: 
+Describe:
 
 Test:
 Input:
